@@ -6,7 +6,7 @@ const appDiv = document.getElementById('app');
 appDiv.innerHTML = `<h1>JS Starter</h1>`;
 
 var baseURL =
-  'https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/kvaas';
+  'https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint';
 var postit = [
   {
     titolo: 'cane',
