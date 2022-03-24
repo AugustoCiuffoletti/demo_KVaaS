@@ -6,7 +6,7 @@ const appDiv = document.getElementById('app');
 appDiv.innerHTML = `<h1>JS Starter</h1>`;
 
 var baseURL =
-  'https://eu-central-1.aws.webhooks.mongodb-realm.com/api/client/v2.0/app/kvaas-giwjg/service/kvaas/incoming_webhook';
+  'https://eu-central-1.aws.data.mongodb-api.com/app/kvaas-giwjg/endpoint/kvaas';
 var postit = [
   {
     titolo: 'cane',
@@ -15,11 +15,11 @@ var postit = [
   }
 ];
 var msg = JSON.stringify(postit);
-fetch(baseURL + '/new', { method: 'POST' })
+fetch(baseURL + '/new?secret=ssw2022', { method: 'GET' })
   .then(response => response.json(), error => alert(error))
   .then(key => {
     console.log(key);
-    fetch(baseURL + '/post?key=' + key + '&msg=' + msg, { method: 'POST' })
+    fetch(baseURL + '/set?key=' + key + '&msg=' + msg, { method: 'POST' })
       .then(response => response.json(), error => alert(error))
       .then(data => {
         console.log(data);
