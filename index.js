@@ -19,12 +19,12 @@ fetch(baseURL + '/new?secret=ssw2022')
   .then(response => response.json(), error => alert(error))
   .then(key => {
     console.log(key);
-    fetch(baseURL + '/set?key=' + key + '&value=' + msg, { method: 'POST', body: msg })
-      .then(response => response.json(), error => alert(error))
+    fetch(baseURL + '/set?key=' + key, { method: 'POST', body: msg })
+      .then(response => response.json(), error => console.log(error))
       .then(data => {
         console.log(data);
         fetch(baseURL + '/get?key=' + key)
-          .then(response => response.json(), error => alert(error))
+          .then(response => response.json(), error => console.log(error))
           .then(data => {
             console.log(data);
             var obj = JSON.parse(data);
