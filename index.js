@@ -15,11 +15,11 @@ var postit = [
   }
 ];
 var msg = JSON.stringify(postit);
-fetch(baseURL + '/new?secret=ssw2022', { method: 'GET' })
+fetch(baseURL + '/new?secret=ssw2022')
   .then(response => response.json(), error => alert(error))
   .then(key => {
     console.log(key);
-    fetch(baseURL + '/set?key=' + key + '&msg=' + msg, { method: 'POST' })
+    fetch(baseURL + '/set?key=' + key + '&value=' + msg, { method: 'POST' })
       .then(response => response.json(), error => alert(error))
       .then(data => {
         console.log(data);
