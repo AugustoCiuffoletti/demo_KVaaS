@@ -16,11 +16,11 @@ var postit = [
 ];
 var msg = JSON.stringify(postit);
 fetch(baseURL + '/new?secret=ssw2022')  // new request
-  .then(response => response.json(), error => alert(error))
+  .then(response => response.json(), error => console.log(error))
   .then(key => {
     console.log(key);
     fetch(baseURL + '/set?key=' + key, { method: 'POST', body: msg }) // set request
-      .then(response => response.json(), error => alert(error))
+      .then(response => response.json(), error => console.log(error))
       .then(data => {
         console.log(data);
         fetch(baseURL + '/get?key=' + key)  // get request
